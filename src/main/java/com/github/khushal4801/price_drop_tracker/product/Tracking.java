@@ -35,21 +35,4 @@ public class Tracking {
     @Column(nullable = false)
     private boolean active = true;
 
-    public record TrackingRequest(
-            @NotNull Long userId,
-            @NotNull Long productId,
-            @NotNull @Positive @Digits(integer = 8, fraction = 2) BigDecimal targetPrice,
-            @NotEmpty Set<Channel> channels) {}
-
-    public record TrackingUpdateRequest(
-            @NotNull @Positive @Digits(integer = 8, fraction = 2) BigDecimal targetPrice,
-            @NotEmpty Set<Channel> channels) {}
-
-    public record TrackingResponse(Long id, Long userId, Long productId, String productName,
-                                   BigDecimal targetPrice, Set<Channel> channels, boolean active) {
-        public static TrackingResponse from(Tracking t) {
-            return new TrackingResponse(t.getId(), t.getUser().getId(), t.getProduct().getId(),
-                    t.getProduct().getName(), t.getTargetPrice(), t.getChannels(), t.isActive());
-        }
-    }
 }
