@@ -1,6 +1,7 @@
 package com.github.khushal4801.price_drop_tracker.product;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -33,4 +34,5 @@ public class Tracking {
 
     @Column(nullable = false)
     private boolean active = true;
+
 }
