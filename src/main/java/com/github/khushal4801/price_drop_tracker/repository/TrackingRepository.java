@@ -12,4 +12,6 @@ public interface TrackingRepository extends JpaRepository<Tracking, Long> {
     boolean existsByUserIdAndProductId(Long userId, Long productId);
     // used in Sprint 2 by the analyzer
     List<Tracking> findByProductIdAndActiveTrueAndTargetPriceGreaterThanEqual(Long productId, BigDecimal price);
+
+    boolean existsByProductId(Long productId);
 }
